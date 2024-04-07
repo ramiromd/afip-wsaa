@@ -82,7 +82,7 @@ public class Main {
         System.out.println(encoded);
 
         LoginCmsService loginCmsService = new LoginCmsService();
-        //LoginCms portName = loginCmsService.getPortName();
+        LoginCms portName = loginCmsService.getPortName();
 
 
         System.out.println("======= AFIP WSAA =======");

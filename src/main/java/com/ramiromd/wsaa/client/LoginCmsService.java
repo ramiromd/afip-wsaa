@@ -18,8 +18,7 @@ public class LoginCmsService extends Service {
     public LoginCmsService() throws MalformedURLException {
         //  The values of the actual arguments for this call MUST be equal (in the java.lang.Object.equals sense) to
         //  the values specified in the mandatory WebServiceClient annotation on the generated service class itself.
-        super(new URL("https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl"),
-                new QName("https://wsaahomo.afip.gov.ar/ws/services/LoginCms", "LoginCMSService"));
+        super(new URL("https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl"), getServiceQName());
     }
     protected LoginCmsService(URL wsdlDocumentLocation, QName serviceName) {
         super(wsdlDocumentLocation, serviceName);
@@ -31,6 +30,14 @@ public class LoginCmsService extends Service {
 
     @WebEndpoint(name = "LoginCms")
     public LoginCms getPortName() {
-        return super.getPort(new QName("LoginCms"), LoginCms.class);
+        return super.getPort(getPortQName(), LoginCms.class);
+    }
+
+    private static QName getServiceQName() {
+        return new QName("https://wsaahomo.afip.gov.ar/ws/services/LoginCms", "LoginCMSService");
+    }
+
+    private static QName getPortQName() {
+        return new QName("https://wsaahomo.afip.gov.ar/ws/services/LoginCms", "LoginCms");
     }
 }
