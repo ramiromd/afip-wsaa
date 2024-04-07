@@ -40,3 +40,5 @@ nb-configuration.xml
 
 ### Others ... ###
 src/main/java/com/ramiromd/KeyAndCertHolder.java
+/src/main/resources/certificates/
+/src/main/resources/keys/
