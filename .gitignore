@@ -34,7 +34,9 @@ nb-configuration.xml
 
 ### VS Code ###
 .vscode/
-/digital-withholding-ar/.data/
 
 ### Mac files ###
 **/.DS_Store
+
+### Others ... ###
+src/main/java/com/ramiromd/KeyAndCertHolder.java
