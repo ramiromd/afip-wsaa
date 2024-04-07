@@ -6,6 +6,7 @@ import jakarta.xml.ws.WebServiceClient;
 import jakarta.xml.ws.WebServiceFeature;
 
 import javax.xml.namespace.QName;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 @WebServiceClient(
@@ -14,6 +15,12 @@ import java.net.URL;
 )
 public class LoginCmsService extends Service {
 
+    public LoginCmsService() throws MalformedURLException {
+        //  The values of the actual arguments for this call MUST be equal (in the java.lang.Object.equals sense) to
+        //  the values specified in the mandatory WebServiceClient annotation on the generated service class itself.
+        super(new URL("https://wsaahomo.afip.gov.ar/ws/services/LoginCms?wsdl"),
+                new QName("https://wsaahomo.afip.gov.ar/ws/services/LoginCms", "LoginCMSService"));
+    }
     protected LoginCmsService(URL wsdlDocumentLocation, QName serviceName) {
         super(wsdlDocumentLocation, serviceName);
     }

@@ -4,6 +4,8 @@ import com.ramiromd.signature.LegacySigner;
 import com.ramiromd.signature.Pkcs8PrivateKeyLoader;
 import com.ramiromd.signature.SignerException;
 import com.ramiromd.signature.X509CertificateLoader;
+import com.ramiromd.wsaa.client.LoginCms;
+import com.ramiromd.wsaa.client.LoginCmsService;
 import com.ramiromd.wsaa.data.LoginTicketHeader;
 import com.ramiromd.wsaa.data.LoginTicketRequest;
 import jakarta.xml.bind.JAXBContext;
@@ -78,6 +80,9 @@ public class Main {
 
         System.out.println();
         System.out.println(encoded);
+
+        LoginCmsService loginCmsService = new LoginCmsService();
+        //LoginCms portName = loginCmsService.getPortName();
 
 
         System.out.println("======= AFIP WSAA =======");
