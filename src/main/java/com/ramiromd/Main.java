@@ -31,6 +31,11 @@ public class Main {
 
         System.out.println("======= AFIP WSAA =======");
 
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+
         System.out.println("Cargando Certificado X509");
         byte[] certContents = getFileContents("src/main/resources/certificates/homologacion.pem");
         X509Certificate certificate = X509CertificateLoader.from(certContents);
@@ -84,6 +89,7 @@ public class Main {
         LoginCmsService loginCmsService = new LoginCmsService();
         LoginCms portName = loginCmsService.getPortName();
 
+        portName.loginCms(encoded);
 
         System.out.println("======= AFIP WSAA =======");
     }
