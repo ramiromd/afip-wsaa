@@ -4,6 +4,8 @@ import com.ramiromd.signature.LegacySigner;
 import com.ramiromd.signature.Pkcs8PrivateKeyLoader;
 import com.ramiromd.signature.SignerException;
 import com.ramiromd.signature.X509CertificateLoader;
+import com.ramiromd.wsaa.client.LoginCms;
+import com.ramiromd.wsaa.client.LoginCmsService;
 import com.ramiromd.wsaa.data.LoginTicketHeader;
 import com.ramiromd.wsaa.data.LoginTicketRequest;
 import jakarta.xml.bind.JAXBContext;
@@ -24,10 +26,15 @@ public class Main {
 
     final public static String TIMEZONE = "America/Argentina/Buenos_Aires";
 
-    final public static long GENERATION_TIME_DELAY_MIN = 10L;
+    final public static long GENERATION_TIME_DELAY_MIN = 2L;
     public static void main(String[] args) throws IOException, CertificateException, InvalidKeySpecException, NoSuchAlgorithmException, JAXBException, SignerException {
 
         System.out.println("======= AFIP WSAA =======");
+
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 
         System.out.println("Cargando Certificado X509");
         byte[] certContents = getFileContents("src/main/resources/certificates/homologacion.pem");
@@ -48,7 +55,7 @@ public class Main {
                 .destination("CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239")
                 .uniqueId(now.toEpochSecond())
                 .generationTime(now.minusMinutes(GENERATION_TIME_DELAY_MIN))
-                .expirationTime(now.plusMinutes(2L))
+                .expirationTime(now.plusMinutes(1L))
                 .build();
 
         LoginTicketRequest aTicketData = LoginTicketRequest.builder()
@@ -79,6 +86,10 @@ public class Main {
         System.out.println();
         System.out.println(encoded);
 
+        LoginCmsService loginCmsService = new LoginCmsService();
+        LoginCms portName = loginCmsService.getPortName();
+
+        String response = portName.loginCms(encoded);
 
         System.out.println("======= AFIP WSAA =======");
     }
