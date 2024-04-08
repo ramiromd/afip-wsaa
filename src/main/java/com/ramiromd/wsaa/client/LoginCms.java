@@ -19,6 +19,6 @@ public interface LoginCms {
 
     @WebMethod(operationName = "loginCms")
     @WebResult(name = "loginCmsReturn", targetNamespace = "http://wsaa.view.sua.dvadac.desein.afip.gov")
-    @ResponseWrapper(localName = "loginCmsResponse", targetNamespace = "http://wsaa.view.sua.dvadac.desein.afip.gov", className = "com.ramiromd.wsaa.data.LoginCmsResponse")
+    @ResponseWrapper(localName = "loginCmsResponse", className = "com.ramiromd.wsaa.data.LoginCmsResponse")
     String loginCms(@WebParam(name = "in0") String ticket);
 }
