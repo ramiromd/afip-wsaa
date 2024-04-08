@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <soapenv:Body>
+        <loginCmsResponse xmlns="http://client.wsaa.ramiromd.com/">
+            <loginCmsReturn>
+                <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+                <loginTicketResponse version="1.0">
+                    <header>
+                        <source>CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+                        <destination>SERIALNUMBER=CUIT 20331376419, CN=jonathanramirez</destination>
+                        <uniqueId>667556238</uniqueId>
+                        <generationTime>2024-04-07T20:02:58.178-03:00</generationTime>
+                        <expirationTime>2024-04-08T08:02:58.178-03:00</expirationTime>
+                    </header>
+                    <credentials>
+                        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgc3JjPSJDTj13c2FhaG9tbywgTz1BRklQLCBDPUFSLCBTRVJJQUxOVU1CRVI9Q1VJVCAzMzY5MzQ1MDIzOSIgdW5pcXVlX2lkPSI4NjQ5MzIzNDkiIGdlbl90aW1lPSIxNzEyNTMwOTE4IiBleHBfdGltZT0iMTcxMjU3NDE3OCIvPgogICAgPG9wZXJhdGlvbiB0eXBlPSJsb2dpbiIgdmFsdWU9ImdyYW50ZWQiPgogICAgICAgIDxsb2dpbiBlbnRpdHk9IjMzNjkzNDUwMjM5IiBzZXJ2aWNlPSJ3c2ljZGIiIHVpZD0iU0VSSUFMTlVNQkVSPUNVSVQgMjAzMzEzNzY0MTksIENOPWpvbmF0aGFucmFtaXJleiIgYXV0aG1ldGhvZD0iY21zIiByZWdtZXRob2Q9IjIyIj4KICAgICAgICAgICAgPHJlbGF0aW9ucz4KICAgICAgICAgICAgICAgIDxyZWxhdGlvbiBrZXk9IjIwMzMxMzc2NDE5IiByZWx0eXBlPSI0Ii8+CiAgICAgICAgICAgIDwvcmVsYXRpb25zPgogICAgICAgIDwvbG9naW4+CiAgICA8L29wZXJhdGlvbj4KPC9zc28+Cg==</token>
+                        <sign>WELOeFSGpW6Evsc4MQLG4kHbyFTwFisYJ465DatMbk3mX2LmoGEpVuq1EwOUC1i+LtPxei2s5nKdquYYM+D332T5TN+KregNRLys7t+jtMGPV/fLoWo/ACwXtRkwtChgwnqqDD0jLDuvD+r4/hgJvLRq8mh7doteXzYTK4jzNJM=</sign>
+                    </credentials>
+                </loginTicketResponse>
+            </loginCmsReturn>
+        </loginCmsResponse>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -26,7 +26,7 @@ public class Main {
 
     final public static String TIMEZONE = "America/Argentina/Buenos_Aires";
 
-    final public static long GENERATION_TIME_DELAY_MIN = 10L;
+    final public static long GENERATION_TIME_DELAY_MIN = 2L;
     public static void main(String[] args) throws IOException, CertificateException, InvalidKeySpecException, NoSuchAlgorithmException, JAXBException, SignerException {
 
         System.out.println("======= AFIP WSAA =======");
@@ -55,7 +55,7 @@ public class Main {
                 .destination("CN=wsaahomo, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239")
                 .uniqueId(now.toEpochSecond())
                 .generationTime(now.minusMinutes(GENERATION_TIME_DELAY_MIN))
-                .expirationTime(now.plusMinutes(2L))
+                .expirationTime(now.plusMinutes(1L))
                 .build();
 
         LoginTicketRequest aTicketData = LoginTicketRequest.builder()
@@ -89,7 +89,7 @@ public class Main {
         LoginCmsService loginCmsService = new LoginCmsService();
         LoginCms portName = loginCmsService.getPortName();
 
-        portName.loginCms(encoded);
+        String response = portName.loginCms(encoded);
 
         System.out.println("======= AFIP WSAA =======");
     }
